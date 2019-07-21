@@ -337,7 +337,8 @@ public class ConfigTest {
             reference.setInterface(DemoService.class);
             reference.setUrl("dubbo://" + NetUtils.getLocalHost() + ":20880?" + DemoService.class.getName() + "?check=false");
             try {
-                reference.get();
+                DemoService demoService = reference.get();
+                System.out.println("test ...."+demoService.sayName("zl"));
                 urls = reference.toUrls();
                 assertNotNull(urls);
                 assertEquals(1, urls.size());
